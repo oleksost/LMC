@@ -1,0 +1,1 @@
+This repository will contain the codebase acompaning the paper 'Continual Learning via Local Module COmposition'.
