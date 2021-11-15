@@ -1,4 +1,4 @@
-## This repository contains the codebase for the paper **Continual Learning with local module selection**.
+## This repository contains the codebase for the paper **Continual Learning via Local Module Composition**.
 ---
 ## Setting up the environemnt
 Create a new conda environment and install the requirements.
