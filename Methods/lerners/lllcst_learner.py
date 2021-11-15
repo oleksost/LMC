@@ -5,7 +5,7 @@ import copy
 from itertools import zip_longest
 from sklearn.metrics import roc_auc_score
 import numpy as np
-
+# addopted from https://github.com/Lifelong-ML/Mendez2020Compositional
 class Learner():  
     def __init__(self, net, lr=0.001, wdecay=0, results_dir='./tmp/results/'):
         self.net = net
