@@ -151,4 +151,4 @@ A list of hyperparameters used for other baselines can be found in the *baseline
 ---
 ## References
 * [CTrL Benchmark](https://github.com/facebookresearch/CTrLBenchmark)
-* [NNgeometry](https://github.com/tfjgeorge/nngeometry)
+* [NNGeometry](https://github.com/tfjgeorge/nngeometry)
