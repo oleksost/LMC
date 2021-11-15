@@ -1,0 +1,38 @@
+task_gen:
+    _name: task_gen
+    n_initial_classes: 5
+    samples_per_class: [5000, 100, 1000]
+    split_names: ['Train', 'Val', 'Test']
+    tta: False
+
+    concept_pool:
+        _name: md_tree
+
+    transformation_pool:
+        _name: id_x_transformation
+        format_image: True
+
+    strat:
+        _name: mixed_overwrite
+        random_select: False
+        strategies:
+            split:
+                _name: split
+                with_replacement: True
+                traj: [[cifar10, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        [mnist, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+                        [dtd, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29],
+                        [fashion-mnist, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39],
+                        [svhn, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49],
+                        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+            data:
+                _name: data  
+                n_samples_per_class_options: [[[400, 10],[20,20]], # [n_samples_train, n_labeled_train], [n_samples_valid, n_labeled_valid]
+                                    [[400, 10],[20, 20]],
+                                    [[400, 10],[20, 20]],
+                                    [[400, 10],[20, 20]],
+                                    [[400, 10],[20, 20]],
+                                    [[400, 40],[200, 200]]]
+                
+                random: False
+                with_replacement: False

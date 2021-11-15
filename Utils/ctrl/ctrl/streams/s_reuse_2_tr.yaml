@@ -1,0 +1,37 @@
+task_gen:
+    _name: task_gen
+    n_initial_classes: 5
+    samples_per_class: [5000, 100, 1000]
+    split_names: ['Train', 'Val', 'Test']
+    tta: False
+
+    concept_pool:
+        _name: md_tree
+
+    transformation_pool:
+        _name: rainbow_x_transformation
+
+    strat:
+        _name: mixed_plasticity
+        random_select: False
+        strategies:
+            split:
+                _name: split 
+                with_replacement: False
+                force_concept_order: True
+                concept_order: [None,
+                                [cifar10 automobile, cifar10 frog, cifar10 cat, cifar10 airplane, cifar10 bird, cifar10 truck, cifar10 ship, cifar10 horse, cifar10 dog, cifar10 deer],
+                                None]
+                traj: [[mnist, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        [cifar10, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+                        [svhn, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]]
+            data:
+                _name: data
+                n_samples_per_class_options: [[80, 40],
+                                                [10, 20],
+                                                [80, 40]]
+                random: False
+                with_replacement: False
+            transfo:
+                _name: transfo
+                trans_trajectory: [0, null, null]

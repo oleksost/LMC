@@ -1,0 +1,40 @@
+#s_minus
+#EWC          
+python main_transfer.py --epochs=100 --ewc=100000 --ewc_online=0 --gating=locspec --hidden_size=384 --keep_bn_in_eval_after_freeze=1 --lr=0.001 --multihead=usual --normalize_data=1 --shuffle_test=0 --task_sequence=s_minus --track_running_stats_bn=1 --use_structural=0 --wdecay=0.001
+#ER_sh 
+python main_transfer.py --epochs=100 --er_old=0 --gating=locspec --hidden_size=64 --keep_bn_in_eval_after_freeze=1 --lr=0.001 --multihead=none --multiply_replay_bs=0 --normalize_data=1 --replay_capacity=-1  --shuffle_test=0 --task_agnostic_test=1 --task_sequence=s_minus --track_running_stats_bn=1 --use_structural=0 --wdecay=0.0001 --pr_name lmc
+#hat
+python main_transfer_hat.py --epochs=100 --gating=hat --hidden_size=384 --keep_bn_in_eval_after_freeze=1 --lr=0.1 --multihead=usual --normalize_data=1 --reg_factor=1 --shuffle_test=0 --smax=100 --task_sequence=s_minus --thres_cosh=50 --thres_emb=6 --track_running_stats_bn=1 --use_bn=1 --use_structural=0 --wdecay=0.001 --pr_name lmc --per_task_bn 1
+#lllwf
+python main_transfer_lllcst.py --epochs=100 --ewc_online=0 --gating=soft_gating_pool --hidden_size=64 --keep_bn_in_eval_after_freeze=1 --lr=0.001 --multihead=usual --normalize_data=1 --padd_input=1  --seperate_pool_per_layer=1 --shuffle_test=0 --task_agnostic_test=0 --task_sequence=s_minus --track_running_stats_bn=1 --use_structural=0 --wdecay=0.001
+
+ 
+#s_plus
+#EWC
+python main_transfer.py --epochs=100 --ewc=100000 --ewc_online=0 --gating=locspec --hidden_size=384 --keep_bn_in_eval_after_freeze=1 --lr=0.001 --multihead=usual --normalize_data=1  --shuffle_test=0 --task_sequence=s_plus --track_running_stats_bn=1 --use_structural=0 --wdecay=0.001 --pr_name lmc
+#ER_sh
+python main_transfer.py --epochs=100 --gating=locspec --hidden_size=64 --keep_bn_in_eval_after_freeze=1 --lr=0.001 --multihead=none --normalize_data=1 --pr_name lmc --replay_capacity=-1  --shuffle_test=0 --task_agnostic_test=1 --task_sequence=s_plus --track_running_stats_bn=1 --use_structural=0 --wdecay=0.001
+#hat
+python main_transfer_hat.py --epochs=100 --gating=hat --hidden_size=384 --keep_bn_in_eval_after_freeze=1 --lr=0.1 --multihead=usual --normalize_data=1 --reg_factor=4  --shuffle_test=0 --smax=200 --task_sequence=s_plus --thres_cosh=50 --thres_emb=6 --track_running_stats_bn=1 --use_bn=1 --use_structural=0 --wdecay=0.0001 --pr_name lmc
+#lllwf
+python main_transfer_lllcst.py --epochs=100 --ewc_online=0 --gating=soft_gating_pool --hidden_size=64 --keep_bn_in_eval_after_freeze=1 --lr=0.001 --multihead=usual --normalize_data=1 --padd_input=1  --seperate_pool_per_layer=1 --shuffle_test=0 --task_agnostic_test=0 --task_sequence=s_plus --track_running_stats_bn=1 --use_structural=0 --wdecay=0.0001 --normalize_data=1 --pr_name lmc
+
+#s_in
+#EWC     
+python main_transfer.py --epochs=100 --ewc=1000 --ewc_online=0 --gating=locspec --hidden_size=384 --keep_bn_in_eval_after_freeze=1 --lr=0.01 --multihead=usual --normalize_data=1  --shuffle_test=0 --task_sequence=s_in --track_running_stats_bn=1 --use_structural=0 --wdecay=0.001 --pr_name lmc
+#ER_sh
+python main_transfer.py --epochs=100 --gating=locspec --hidden_size=64 --keep_bn_in_eval_after_freeze=1 --lr=0.001 --multihead=none --multiply_replay_bs=1 --n_tasks=5 --normalize_data=1 --replay_capacity=-1  --shuffle_test=0 --task_agnostic_test=1 --task_sequence=s_pl --track_running_stats_bn=1 --use_structural=0 --wdecay=0.0001 --pr_name lmc
+#hat
+python main_transfer_hat.py --epochs=100 --gating=hat --hidden_size=384 --keep_bn_in_eval_after_freeze=1 --lr=0.01 --multihead=usual --normalize_data=1 --per_task_bn=0 --reg_factor=0.75  --shuffle_test=0 --smax=200 --task_sequence=s_in --thres_cosh=50 --thres_emb=6 --track_running_stats_bn=1 --use_bn=1 --use_structural=0 --wdecay=0.001 --pr_name lmc
+#lllwf
+python main_transfer_lllcst.py --epochs=100 --ewc_online=0 --gating=soft_gating_pool --hidden_size=64 --keep_bn_in_eval_after_freeze=1 --lr=0.001 --multihead=usual --normalize_data=1 --padd_input=1  --seperate_pool_per_layer=1 --shuffle_test=0 --task_agnostic_test=0 --task_sequence=s_in --track_running_stats_bn=1 --use_structural=0 --wdecay=0.001 --normalize_data=1 --pr_name lmc
+
+#s_pl
+#EWC
+python main_transfer.py --epochs=100 --ewc=100000 --ewc_online=0 --gating=locspec --hidden_size=320 --keep_bn_in_eval_after_freeze=1 --lr=0.001 --multihead=usual --normalize_data=1  --shuffle_test=0 --task_sequence=s_pl --track_running_stats_bn=1 --use_structural=0 --wdecay=0.001 --pr_name lmc
+#ER_sh
+python main_transfer.py --epochs=100 --gating=locspec --hidden_size=64 --keep_bn_in_eval_after_freeze=1 --lr=0.001 --multihead=none --normalize_data=1 --replay_capacity=-1  --shuffle_test=0 --task_agnostic_test=1 --task_sequence=s_pl --track_running_stats_bn=1 --use_structural=0 --wdecay=0.001
+#hat
+python main_transfer_hat.py --epochs=100 --gating=hat --hidden_size=320 --keep_bn_in_eval_after_freeze=1 --lr=0.1 --multihead=usual --normalize_data=1 --reg_factor=0.1  --shuffle_test=0 --smax=400 --task_sequence=s_pl --thres_cosh=50 --thres_emb=6 --track_running_stats_bn=1 --use_bn=1 --use_structural=0 --wdecay=0.0001 --pr_name lmc
+#lllwf
+python main_transfer_lllcst.py --epochs=100 --ewc_online=0 --gating=soft_gating_pool --hidden_size=64 --keep_bn_in_eval_after_freeze=1 --lr=0.001 --multihead=usual --normalize_data=1 --padd_input=1  --seperate_pool_per_layer=1 --shuffle_test=0 --task_agnostic_test=0 --task_sequence=s_pl --track_running_stats_bn=1 --use_structural=0 --wdecay=0.0001 --normalize_data=1 --pr_name lmc

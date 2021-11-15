@@ -1,0 +1,45 @@
+task_gen:
+    _name: task_gen
+    n_initial_classes: 5
+    samples_per_class: [450, 100, 1000]
+    split_names: ['Train', 'Val', 'Test']
+    tta: False
+
+    concept_pool:
+        _name: md_tree_cmnist_32
+
+    transformation_pool:
+        _name: rainbow_x_transformation_bkgrnddigitstoch
+        train: False
+        ordered: True
+        trans_idx: 0
+        whiten_digits: False
+
+    strat:
+        _name: mixed_remember
+        strategies:
+            split:
+                _name: split 
+                with_replacement: False
+                force_concept_order: True
+                concept_order: [None,
+                                [fashion-mnist T-shirt/top, fashion-mnist Shirt, fashion-mnist Dress, fashion-mnist Pullover, fashion-mnist Sandal, fashion-mnist Ankle boot, fashion-mnist Sneaker, fashion-mnist Coat, fashion-mnist Trouser, fashion-mnist Bag],
+                                [cmnist 0 - zero, cmnist 1 - one, cmnist 2 - two, cmnist 3 - three, cmnist 4 - four, cmnist 5 - five, cmnist 6 - six,  cmnist 7 - seven, cmnist 8 - eight, cmnist 9 - nine]]
+                with_replacement: True
+                traj: [[mnist, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        [fashion-mnist, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+                        [cmnist, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]]
+            data:
+                _name: data
+                n_samples_per_class_options: [[80, 40],
+                                                [100, 40],
+                                                [10, 10]]
+                random: False
+                with_replacement: False
+            transfo:
+                _name: transfo
+                #0 - blue background
+                # 1 - red background
+                #
+                # 3 - 
+                trans_trajectory: [null, null, 0]
