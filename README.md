@@ -10,7 +10,7 @@ pip install -e Utils/ctrl/
 pip install Utils/nngeometry/
 ```
 ---
-## CTrL Benchmark [(Veniat et al., 2020)](https://arxiv.org/abs/2012.12631)
+## CTrL Benchmark
 All experiments were run on Nvidia Quadro RTX 8000 GPUs. To run CTrL experiments use the following comands for different streams:
 
 **Stream S<sup>-</sup>**
@@ -145,5 +145,10 @@ python main_transfer.py --regenerate_seed 0 --deviation_threshold=8 --epochs=50 
 ```
 python main_plug_and_play.py --activate_after_str_oh=0 --activation_structural=sigmoid --deviation_threshold=1.5 --early_stop_complete=0 --epochs=100 --epochs_str_only_after_addition=1 --pr_name lmc_cr --hidden_size=64 --init_oh=none --init_runingstats_on_addition=1 --keep_bn_in_eval_after_freeze=1 --lr=0.001 --module_init=mean --momentum_bn=0.1 --momentum_bn_decoder=0.1 --multihead=gated_linear --n_tasks=3 --normalize_oh=1 --optmize_structure_only_free_modules=1 --projection_layer_oh=0 --projection_phase_length=5 --reg_factor=10 --running_stats_steps=10 --str_prior_factor=1 --str_prior_temp=0.1 --structure_inv=ae --structure_inv_oh=linear_no_act --task_agnostic_test=1 --task_sequence=s_pnp_comp --temp=1 --wdecay=0.001
 ```
-------
+---
 A list of hyperparameters used for other baselines can be found in the *baselines.txt* file.
+
+---
+## References
+* [CTrL Benchmark](https://github.com/facebookresearch/CTrLBenchmark)
+* [NNgeometry](https://github.com/tfjgeorge/nngeometry)
