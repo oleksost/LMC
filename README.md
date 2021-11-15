@@ -14,6 +14,7 @@ pip install Utils/nngeometry/
 All experiments were run on Nvidia Quadro RTX 8000 GPUs. To run CTrL experiments use the following comands for different streams:
 
 **Stream S<sup>-</sup>**
+
 LMC (task agnostic)
 ```
 python main_transfer.py --activate_after_str_oh=0 --momentum_bn 0.1 --track_running_stats_bn 1 --pr_name lmc_cr --shuffle_test 0 --init_oh=none --task_sequence s_minus --momentum_bn_decoder=0.1 --activation_structural=sigmoid --deviation_threshold=4 --depth=4 --epochs=100 --fix_layers_below_on_addition=0 --hidden_size=64 --lr=0.001 --mask_str_loss=1 --module_init=mean --multihead=gated_linear --normalize_oh=1 --optmize_structure_only_free_modules=1 --projection_layer_oh=0 --projection_phase_length=20 --reg_factor=10  --running_stats_steps=100 --str_prior_factor=1 --str_prior_temp=0.1 --structure_inv=ae --structure_inv_oh=linear_no_act --task_agnostic_test=1 --temp=0.1 --wdecay=0.001
@@ -41,6 +42,7 @@ python main_transfer_mntdp.py --momentum_bn 0.1 --pr_name lmc_cr --copy_batchsta
 (test acc. 0.609, 18 modules)
 
 **Stream S<sup>in</sup>**
+
 LMC
 ```
 python main_transfer.py --activate_after_str_oh=0 --momentum_bn 0.1 --track_running_stats_bn 1 --pr_name lmc_cr --shuffle_test 0 --init_oh=none --task_sequence s_in --momentum_bn_decoder=0.1 --activation_structural=sigmoid --deviation_threshold=4 --depth=4 --epochs=100 --fix_layers_below_on_addition=0 --hidden_size=64 --lr=0.001 --mask_str_loss=1 --module_init=most_likely --multihead=gated_linear --normalize_oh=1 --optmize_structure_only_free_modules=1 --projection_layer_oh=0 --projection_phase_length=20 --reg_factor=10  --running_stats_steps=100 --str_prior_factor=1 --str_prior_temp=0.1 --structure_inv=ae --structure_inv_oh=linear_no_act --task_agnostic_test=1 --temp=0.1 --wdecay=0.001
@@ -69,6 +71,7 @@ python main_transfer_mntdp.py --momentum_bn 0.1 --pr_name lmc_cr --copy_batchsta
 (test acc. 0.6567, 11 modules)
 
 **Stream S<sup>pl</sup>**
+
 LMC
 ```
 python main_transfer.py --activate_after_str_oh=0 --activation_structural=sigmoid --pr_name lmc_cr --deviation_threshold=1.5 --early_stop_complete=0 --epochs=100 --hidden_size=64 --init_oh=none --init_runingstats_on_addition=0 --keep_bn_in_eval_after_freeze=1 --lr=0.001 --module_init=most_likely --momentum_bn=0.1 --momentum_bn_decoder=0.1 --multihead=gated_linear --normalize_oh=1 --optmize_structure_only_free_modules=1 --projection_layer_oh=0 --projection_phase_length=10 --reg_factor=10 --running_stats_steps=100 --str_prior_factor=1 --str_prior_temp=0.1 --structure_inv=ae --structure_inv_oh=linear_no_act --task_agnostic_test=1 --task_sequence=s_pl --temp=1 --regenerate_seed 0 --wdecay=0.001
@@ -84,6 +87,7 @@ python main_transfer_mntdp.py --momentum_bn 0.1 --pr_name lmc_cr --copy_batchsta
 ---
 
 **Stream S<sup>long30</sup>** -- 30 tasks
+
 LMC (task aware)
 ```
 python main_transfer.py --activate_after_str_oh=0 --activation_structural=sigmoid --deviation_threshold=1.5 --epochs=50 --hidden_size=64 --init_oh=none --keep_bn_in_eval_after_freeze=1 --lr=0.001 --module_init=most_likely --momentum_bn_decoder=0.1 --multihead=gated_linear --n_tasks=100 --normalize_oh=1 --optmize_structure_only_free_modules=1 --projection_layer_oh=0 --projection_phase_length=5 --reg_factor=1 --running_stats_steps=50 --seed=180 --str_prior_factor=1 --str_prior_temp=0.01 --structure_inv=ae --structure_inv_oh=linear_no_act --task_agnostic_test=0 --task_sequence=s_long30 --temp=1 --wdecay=0.001
@@ -99,6 +103,7 @@ python main_transfer_mntdp.py --epochs=50 --hidden_size=64 --lr=0.001 --module_i
 ---
 
 **Stream S<sup>long</sup>** -- 100 tasks
+
 LMC (task aware)
 ```
 python main_transfer.py --activate_after_str_oh=0 --activation_structural=sigmoid --deviation_threshold=4 --epochs=100 --hidden_size=64 --init_oh=none --keep_bn_in_eval_after_freeze=1 --lr=0.001 --module_init=most_likely --momentum_bn_decoder=0.1 --multihead=gated_linear --n_tasks=100 --normalize_oh=1 --optmize_structure_only_free_modules=1 --projection_layer_oh=0 --projection_phase_length=5 --reg_factor=1 --running_stats_steps=50 --seed=180 --str_prior_factor=1 --str_prior_temp=0.01 --structure_inv=ae --structure_inv_oh=linear_no_act --task_agnostic_test=0 --task_sequence=s_long --temp=1 --pr_name s_long_cr --wdecay=0
